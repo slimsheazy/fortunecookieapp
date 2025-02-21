@@ -5,16 +5,14 @@ const fortunes = [
     "The color you notice most today will be a clue.",
     "You will soon need advice from someone you don’t usually listen to.",
     "Spare no expense.",
-    "A half truth is a whole lie.",
+    "A half-truth is a whole lie.",
     "Slow & steady.",
     "Curiosity killed the cat. But he has 8 more lives.",
     "What is your role in this movie?",
     "Adults grow up to be children.",
     "Eeny, meeny, miny, moe.",
     "Is it fair or is it just?",
-    "I really remember when I say I forgot.",
     "An apology is in your near future.",
-    "Get over it.",
     "Don't let their poker face fool you.",
     "Coming in hot.",
     "You can only trust yourself in this situation.",
@@ -38,21 +36,30 @@ const zodiacSigns = [
     "Capricorn", "Aquarius", "Pisces"
 ];
 
-function getRandomItem(array) {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
-}
+const cookie = document.getElementById("fortune-cookie");
+const fortuneText = document.getElementById("fortune-text");
+const luckyNumber = document.getElementById("lucky-number");
+const zodiacSign = document.getElementById("zodiac-sign");
+const crackSound = document.getElementById("crack-sound");
 
-function getFortune() {
-    const fortune = getRandomItem(fortunes);
-    const zodiac = getRandomItem(zodiacSigns);
-    const luckyNumber = Math.floor(Math.random() * 100) + 1;
-    return { fortune, zodiac, luckyNumber };
-}
+cookie.addEventListener("click", () => {
+    // Play sound
+    crackSound.play();
 
-document.getElementById("cookieButton").addEventListener("click", () => {
-    const result = getFortune();
-    document.getElementById("fortune").textContent = `Fortune: ${result.fortune}`;
-    document.getElementById("zodiac").textContent = `Zodiac: ${result.zodiac}`;
-    document.getElementById("luckyNumber").textContent = `Lucky Number: ${result.luckyNumber}`;
+    // Change cookie to cracked image
+    cookie.src = "cookie-cracked.png";
+
+    // Generate random fortune
+    fortuneText.textContent = fortunes[Math.floor(Math.random() * fortunes.length)];
+
+    // Generate random lucky number (1-999)
+    luckyNumber.textContent = `Lucky Number: ${Math.floor(Math.random() * 999) + 1}`;
+
+    // Generate random zodiac sign
+    zodiacSign.textContent = `Zodiac Sign: ${zodiacSigns[Math.floor(Math.random() * zodiacSigns.length)]}`;
+
+    // Reveal text with transition
+    fortuneText.classList.remove("hidden");
+    luckyNumber.classList.remove("hidden");
+    zodiacSign.classList.remove("hidden");
 });
