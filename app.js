@@ -47,7 +47,8 @@ cookie.addEventListener("click", () => {
     crackSound.play();
 
     // Change cookie to cracked image
-    cookie.src = "cookie-cracked.png";
+    cookie.src = "assets/images/fortune-cookie-cracked.png"; // Change to cracked image
+});
 
     // Generate random fortune
     fortuneText.textContent = fortunes[Math.floor(Math.random() * fortunes.length)];
