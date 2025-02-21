@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Fortune Cookie</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Fortune Cookie</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="fortune-container">
+    <div class="container">
         <h1>Tap the Cookie</h1>
-        <img src="cookie-whole.png" id="fortune-cookie" alt="Fortune Cookie">
-        <p id="fortune-text" class="hidden">Tap the cookie for your fortune!</p>
+        <img id="fortune-cookie" src="cookie-whole.png" alt="Fortune Cookie">
+        <audio id="crack-sound" src="crack.mp3"></audio>
+        <p id="fortune-text" class="hidden"></p>
         <p id="lucky-number" class="hidden"></p>
-        <audio id="crack-sound" src="cookie-crack.mp3"></audio>
     </div>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
